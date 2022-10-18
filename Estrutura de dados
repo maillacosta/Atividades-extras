@@ -1,0 +1,73 @@
+public class Fila {
+
+        int inicio, fim, tm, elementos;
+        int F[];
+
+    public Fila(){
+            inicio= fim = -1;
+            tm = 10;
+            F = new int[tm];
+            elementos = 0;
+    }
+
+    public boolean FilaVazia(){
+        if ( elementos == 0){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean FilaCheia(){
+        if ( elementos == tm- 1){
+            return true;
+        }
+        return false;
+    }
+
+    public void ColocaFila(int e){
+        if (! FilaCheia()){
+            if (inicio == -1){
+                inicio = 0;
+            }
+            fim++;
+            F[fim] = e;
+            elementos++;
+        }
+    }
+
+    public void TiraFila(){
+        if (! FilaVazia() ){
+            inicio++;
+            elementos--;
+        }
+    }
+
+    public void Exibir(){
+        String elementos = "";
+        for (int i = inicio; i<=fim; i++) {
+            elementos += F[i]+ " - ";
+        }
+        System.out.println(elementos);
+    }
+}
+
+
+
+
+public class MainFila {
+    public static void main(String args[]){
+        Fila f = new Fila();
+
+        f.ColocaFila(1);
+        f.ColocaFila(2);
+        f.ColocaFila(3);
+        f.Exibir();
+        f.TiraFila();
+        f.Exibir();
+        f.FilaVazia();
+
+        }
+    }
+
+
+
